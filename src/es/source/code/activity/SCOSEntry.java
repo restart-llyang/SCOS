@@ -36,7 +36,17 @@ public class SCOSEntry extends Activity {
     		x2 = event.getX();
     		y2 = event.getY();
     		if ((x1-x2)>50) {
-    			Intent intent = new Intent(SCOSEntry.this,MainScreen.class);
+    			/**
+    			 * œ‘ Ωintent
+    			 */
+    			//Intent intent = new Intent(SCOSEntry.this,MainScreen.class);
+    			/**
+    			 * “˛ Ωintent
+    			 */
+    			Intent intent = new Intent();
+    			intent.setAction("scos.intent.action.SCOSMAIN");
+    			intent.addCategory("scos.intent.category.SCOSLAUNCHER");
+    			intent.putExtra("extra_data", "FromEntry");
     			startActivity(intent);
 //    			Toast.makeText(SCOSEntry.this, "left", Toast.LENGTH_SHORT).show();
     		}
