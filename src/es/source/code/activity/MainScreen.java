@@ -19,16 +19,20 @@ public class MainScreen extends Activity {
 
 	private List<Item> itemList = new ArrayList<Item>();
 
+	boolean isLoginSuccess;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mainscreen);
 		Intent intent = getIntent();
 		String data = intent.getStringExtra("extra_data");
-		if ("FromEntry".equals(data)) {
-			initItems();
-		} else {
-			initItemsLess();
+		if (("FromEntry".equals(data)) || ("LoginSuccess".equals(data))) {
+			isLoginSuccess = true;
 		}
+		if (isLoginSuccess)
+			initItems();
+		else
+			initItemsLess();
 		ItemAdapter adapter = new ItemAdapter(MainScreen.this,
 				R.layout.itemlayout, itemList);
 		ListView listView = (ListView) findViewById(R.id.navigation);
@@ -36,12 +40,19 @@ public class MainScreen extends Activity {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-					long id) {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
 				Item item = itemList.get(position);
-				Toast.makeText(MainScreen.this, item.getName(), Toast.LENGTH_SHORT).show();
+				if ("µÇÂ¼/×¢²á".equals(item.getName())) {
+					Intent intent = new Intent(MainScreen.this,
+							LoginOrRegister.class);
+					startActivity(intent);
+				}
+				// Toast.makeText(MainScreen.this, item.getName(),
+				// Toast.LENGTH_SHORT).show();
 			}
 		});
+
 	}
 
 	private void initItemsLess() {

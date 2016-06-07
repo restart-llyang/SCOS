@@ -33,6 +33,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity 
+            android:name="es.source.code.activity.LoginOrRegister"></activity>
     </application>
 
 </manifest>
