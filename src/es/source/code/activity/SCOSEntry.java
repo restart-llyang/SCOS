@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import es.source.code.R;
 
 public class SCOSEntry extends Activity {
@@ -46,7 +47,7 @@ public class SCOSEntry extends Activity {
     			Intent intent = new Intent();
     			intent.setAction("scos.intent.action.SCOSMAIN");
     			intent.addCategory("scos.intent.category.SCOSLAUNCHER");
-    			intent.putExtra("extra_data", "FromEntry");
+    			intent.putExtra("extra_data", "FroEntry");
     			startActivity(intent);
 //    			Toast.makeText(SCOSEntry.this, "left", Toast.LENGTH_SHORT).show();
     		}

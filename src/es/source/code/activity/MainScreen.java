@@ -48,8 +48,8 @@ public class MainScreen extends Activity {
 							LoginOrRegister.class);
 					startActivity(intent);
 				}
-				// Toast.makeText(MainScreen.this, item.getName(),
-				// Toast.LENGTH_SHORT).show();
+				 Toast.makeText(MainScreen.this, item.getName(),
+				 Toast.LENGTH_SHORT).show();
 			}
 		});
 
